@@ -1,0 +1,114 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnerSet",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "changeOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "This contract is all about who's the boss. Sets and lets you change the owner.",
+			"kind": "dev",
+			"methods": {
+				"changeOwner(address)": {
+					"details": "Change the boss! Only the current owner can transfer ownership.",
+					"params": {
+						"newOwner": "The address of the new boss."
+					}
+				},
+				"constructor": {
+					"details": "Constructor: Runs only once when the contract is born! Sets the person who deployed the contract as the first owner."
+				},
+				"getOwner()": {
+					"details": "Who's the boss right now? Ask this function.",
+					"returns": {
+						"_0": "address The address of the current owner."
+					}
+				}
+			},
+			"title": "Owner",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/2_Owner.sol": "Owner"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/2_Owner.sol": {
+			"keccak256": "0xb1bb909092b9bc4f58de467212cc90e0330465a828de689b38e431490991720b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8db8e33b38229c0a8b56c3e237ef4eb314a82f7341084d8dd90074260210d60b",
+				"dweb:/ipfs/QmY5CShco4HT9JhMzXP7bDccNKF7Ed7CSuqgYxbipgFx8x"
+			]
+		}
+	},
+	"version": 1
+}

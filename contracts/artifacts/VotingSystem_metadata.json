@@ -1,0 +1,251 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "CandidateAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnerSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "candidateId",
+						"type": "uint256"
+					}
+				],
+				"name": "Voted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "addCandidate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "changeOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "candidateId",
+						"type": "uint256"
+					}
+				],
+				"name": "getCandidate",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "voteCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTotalCandidates",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "candidateId",
+						"type": "uint256"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "This is where the magic happens! A decentralized voting system. We're inheriting from your awesome Owner contract to keep things tidy and secure. Only the real OG (Original Gangster, aka the owner) can add candidates.",
+			"kind": "dev",
+			"methods": {
+				"addCandidate(string)": {
+					"details": "Adding a new contender to the voting list! Only callable by the contract owner. Sorry, plebs! 😉",
+					"params": {
+						"name": "The name of the candidate you're adding. Use 'calldata' here because 'name' is an external function arg (coming from outside) and it's a complex type (string). Calldata is super gas-efficient for this!"
+					}
+				},
+				"changeOwner(address)": {
+					"details": "Change the boss! Only the current owner can transfer ownership.",
+					"params": {
+						"newOwner": "The address of the new boss."
+					}
+				},
+				"constructor": {
+					"details": "Constructor time! This runs once when you deploy the contract. It automatically makes the person who deploys it the contract owner thanks to the Owner contract we're inheriting from."
+				},
+				"getCandidate(uint256)": {
+					"details": "Wanna see how a candidate is doing? Get their deets here. This is a 'view' function, meaning it doesn't change anything on the blockchain, so it's free to call! Gas fees? We don't know her.",
+					"params": {
+						"candidateId": "The ID of the candidate you're curious about."
+					},
+					"returns": {
+						"name": "The candidate's name.",
+						"voteCount": "Their current vote count."
+					}
+				},
+				"getOwner()": {
+					"details": "Who's the boss right now? Ask this function.",
+					"returns": {
+						"_0": "address The address of the current owner."
+					}
+				},
+				"getTotalCandidates()": {
+					"details": "How many candidates are in the running? This tells you. Another 'view' function, so it's free!",
+					"returns": {
+						"_0": "The total number of candidates added so far."
+					}
+				},
+				"vote(uint256)": {
+					"details": "Time to cast your vote! Choose your fighter! Anyone can call this, but you only get one shot. No double-dipping!",
+					"params": {
+						"candidateId": "The ID of the candidate you want to vote for."
+					}
+				}
+			},
+			"title": "VotingSystem",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/VotingSystem.sol": "VotingSystem"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Owner.sol": {
+			"keccak256": "0xb1bb909092b9bc4f58de467212cc90e0330465a828de689b38e431490991720b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8db8e33b38229c0a8b56c3e237ef4eb314a82f7341084d8dd90074260210d60b",
+				"dweb:/ipfs/QmY5CShco4HT9JhMzXP7bDccNKF7Ed7CSuqgYxbipgFx8x"
+			]
+		},
+		"contracts/VotingSystem.sol": {
+			"keccak256": "0x10db92e989c84e17c14c825174dce4387578d8d0ecda3980a4074339d9113bc9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c189dd8f30a737f06aea16b542c86168c974abcda3017a72c3ec81687d540aa4",
+				"dweb:/ipfs/QmW9u35irtSsA19Ly8gbujJvqcdxK6wam8HGxYbFhoF1Q2"
+			]
+		}
+	},
+	"version": 1
+}
